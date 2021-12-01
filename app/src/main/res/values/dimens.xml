@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="nav_header_height">170dp</dimen>
+    <dimen name="activity_margin_vertical">16dp</dimen>
+    <dimen name="activity_margin_horizontal">16dp</dimen>
+    <dimen name="nav_text_spacing_vertical">8dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>
