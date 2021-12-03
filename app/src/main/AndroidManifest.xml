@@ -11,7 +11,7 @@
         android:theme="@style/Theme.JokerAppDev">
         <activity
             android:exported="true"
-            android:name=".MainActivity">
+            android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
