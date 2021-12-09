@@ -3,6 +3,7 @@ package co.tiagoaguiar.tutorial.jokerappdev.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -13,13 +14,15 @@ import androidx.navigation.ui.setupWithNavController
 import co.tiagoaguiar.tutorial.jokerappdev.R
 import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
     private lateinit var appBarConfig: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen()
+        setContentView(R.layout.activity_main)
         setActionBarConfiguration()
     }
 
