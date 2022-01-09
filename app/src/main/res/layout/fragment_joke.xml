@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".view.JokeFragment">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/img_joke_fragment"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_baseline_today_24" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_joke_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="1dp"
+        android:lines="5"
+        android:text="@tools:sample/lorem/random"
+        android:textSize="16sp" />
+
+</LinearLayout>

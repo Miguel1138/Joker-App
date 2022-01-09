@@ -5,12 +5,15 @@ import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.tiagoaguiar.tutorial.jokerappdev.R
 import co.tiagoaguiar.tutorial.jokerappdev.model.JokeCategory
 import co.tiagoaguiar.tutorial.jokerappdev.presentation.HomePresenter
 import com.xwray.groupie.GroupieAdapter
+import com.xwray.groupie.GroupieViewHolder
+import com.xwray.groupie.Item
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -26,13 +29,30 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         progressBar = view.findViewById(R.id.progress_bar)
-        presenter.findAllCategories()
 
         val recyclerView: RecyclerView = view.findViewById(R.id.recycler_main)
         recyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = groupieAdapter
         }
+
+        if (adapterListIsEmpty())
+            presenter.findAllCategories()
+
+        groupieAdapter.setOnItemClickListener { item, view ->
+            passCategoryTitleTo(item)
+        }
+    }
+
+    private fun adapterListIsEmpty() = groupieAdapter.itemCount == 0
+
+    private fun passCategoryTitleTo(item: Item<GroupieViewHolder>) {
+        val categoryName = (item as JokeCategoryItem).category.name
+        val bundle = Bundle().apply {
+            putString(JokeFragment.CATEGORY_KEY, categoryName)
+        }
+
+        findNavController().navigate(R.id.action_nav_home_to_nav_joke, bundle)
     }
 
     fun showCategories(response: List<JokeCategory>) {
