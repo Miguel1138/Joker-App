@@ -4,4 +4,5 @@
     <string name="joker_day">Piada do Dia</string>
     <string name="menu_about">Sobre</string>
     <string name="social">Social</string>
+    <string name="label_txt_joke">Searching for joke...</string>
 </resources>
