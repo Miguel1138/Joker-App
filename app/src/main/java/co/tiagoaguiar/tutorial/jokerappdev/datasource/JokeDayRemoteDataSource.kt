@@ -5,12 +5,12 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class JokeRemoteDataSource {
+class JokeDayRemoteDataSource {
 
-    fun findJokeBy(categoryName: String, callback: JokeCallback) {
+    fun findJokeDay(callback: JokeCallback) {
         HTTPClient.retrofit()
             .create(ChuckNorrisApi::class.java)
-            .findJoke(categoryName)
+            .findJoke()
             .enqueue(joke(callback))
     }
 

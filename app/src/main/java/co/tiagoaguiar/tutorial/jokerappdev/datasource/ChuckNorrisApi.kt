@@ -13,8 +13,9 @@ interface ChuckNorrisApi {
     ): Call<List<String>>
 
     @GET("jokes/random")
-    fun findJokeBy(
-        @Query("category") categoryName: String,
+    fun findJoke(
+        @Query("category") categoryName: String? = null,
         @Query("apiKey") apiKey: String = HTTPClient.getApiAccessKey()
     ): Call<Joke>
+
 }

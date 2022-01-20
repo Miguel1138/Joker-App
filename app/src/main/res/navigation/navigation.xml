@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_nav_home_to_nav_joke"
             app:destination="@id/nav_joke" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_joke_day"
+            app:destination="@id/nav_joke_day" />
     </fragment>
 
     <fragment
