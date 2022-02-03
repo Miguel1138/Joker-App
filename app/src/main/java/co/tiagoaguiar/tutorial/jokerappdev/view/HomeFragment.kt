@@ -39,7 +39,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         if (adapterListIsEmpty())
             presenter.findAllCategories()
 
-        groupieAdapter.setOnItemClickListener { item, view ->
+        groupieAdapter.setOnItemClickListener { item, _ ->
             passCategoryTitleTo(item)
         }
     }

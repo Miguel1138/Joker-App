@@ -4,5 +4,9 @@
     <string name="joker_day">Piada do Dia</string>
     <string name="menu_about">Sobre</string>
     <string name="social">Social</string>
-    <string name="label_txt_joke">Searching for joke...</string>
+    <string name="label_txt_joke">Searching for joke…</string>
+    <string name="label_about_norris">This app was made, as part of the course "Android Express", to show
+    how to proper handle Api calls, MVP architecture, callbacks and finally, but not the least, use of frameworks as Glide, Picasso for handling Json file responses. </string>
+    <string name="label_website_link">Meu site</string>
+    <string name="build_version">Versão (%1$s)</string>
 </resources>
