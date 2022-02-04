@@ -1,14 +1,14 @@
 package co.tiagoaguiar.tutorial.jokerappdev.presentation
 
-import co.tiagoaguiar.tutorial.jokerappdev.datasource.JokeCallback
 import co.tiagoaguiar.tutorial.jokerappdev.datasource.JokeDayRemoteDataSource
+import co.tiagoaguiar.tutorial.jokerappdev.datasource.ReturnCallback
 import co.tiagoaguiar.tutorial.jokerappdev.model.Joke
 import co.tiagoaguiar.tutorial.jokerappdev.view.JokeDayFragment
 
 class JokeDayPresenter(
     private val view: JokeDayFragment,
     private val dataSource: JokeDayRemoteDataSource = JokeDayRemoteDataSource()
-) : JokeCallback {
+) : ReturnCallback<Joke> {
 
     override fun onSuccess(response: Joke) {
         view.showRandomJoke(response)

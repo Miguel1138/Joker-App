@@ -6,19 +6,19 @@ import retrofit2.Response
 
 class CategoryRemoteDatasource {
 
-    fun findAllCategories(callback: ListCategoryCallback) {
+    fun findAllCategories(callback: ReturnCallback<List<String>>) {
         HTTPClient.retrofit()
             .create(ChuckNorrisApi::class.java)
             .findAllJokeCategories()
             .enqueue(jokeCategories(callback))
     }
 
-    private fun jokeCategories(callback: ListCategoryCallback) =
+    private fun jokeCategories(callback: ReturnCallback<List<String>>) =
         object : Callback<List<String>> {
             override fun onResponse(call: Call<List<String>>, response: Response<List<String>>) {
                 if (response.isSuccessful) {
                     val categories = response.body()
-                    callback.onSuccess(categories ?: emptyList())
+                    callback.onSuccess((categories ?: emptyList()))
                 } else {
                     val error = response.errorBody()?.string()
                     callback.onError(error ?: "Erro desconhecido")

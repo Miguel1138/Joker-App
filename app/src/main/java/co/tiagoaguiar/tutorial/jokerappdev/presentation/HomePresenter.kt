@@ -2,19 +2,14 @@ package co.tiagoaguiar.tutorial.jokerappdev.presentation
 
 import android.graphics.Color
 import co.tiagoaguiar.tutorial.jokerappdev.datasource.CategoryRemoteDatasource
-import co.tiagoaguiar.tutorial.jokerappdev.datasource.ListCategoryCallback
+import co.tiagoaguiar.tutorial.jokerappdev.datasource.ReturnCallback
 import co.tiagoaguiar.tutorial.jokerappdev.model.JokeCategory
 import co.tiagoaguiar.tutorial.jokerappdev.view.HomeFragment
 
 class HomePresenter(
     private val view: HomeFragment,
     private val datasource: CategoryRemoteDatasource = CategoryRemoteDatasource()
-) : ListCategoryCallback {
-
-    fun findAllCategories() {
-        view.showProgressBar()
-        datasource.findAllCategories(this)
-    }
+) : ReturnCallback<List<String>> {
 
     override fun onSuccess(response: List<String>) {
         val categories = inflateJokeCategoriesBy(response)
@@ -40,6 +35,11 @@ class HomePresenter(
     override fun onError(message: String) = view.showFailure(message)
 
     override fun onComplete() = view.hideProgressBar()
+
+    fun findAllCategories() {
+        view.showProgressBar()
+        datasource.findAllCategories(this)
+    }
 
 }
 

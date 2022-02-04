@@ -1,10 +1,9 @@
 package co.tiagoaguiar.tutorial.jokerappdev.datasource
 
-import co.tiagoaguiar.tutorial.jokerappdev.model.Joke
 
-interface JokeCallback {
+interface ReturnCallback<T> {
 
-    fun onSuccess(response: Joke)
+    fun onSuccess(response: T)
     fun onError(message: String)
     fun onComplete()
 

@@ -7,14 +7,14 @@ import retrofit2.Response
 
 class JokeDayRemoteDataSource {
 
-    fun findJokeDay(callback: JokeCallback) {
+    fun findJokeDay(callback: ReturnCallback<Joke>) {
         HTTPClient.retrofit()
             .create(ChuckNorrisApi::class.java)
             .findJoke()
             .enqueue(joke(callback))
     }
 
-    private fun joke(callback: JokeCallback) = object : Callback<Joke> {
+    private fun joke(callback: ReturnCallback<Joke>) = object : Callback<Joke> {
         override fun onResponse(call: Call<Joke>, response: Response<Joke>) {
             if (response.isSuccessful) {
                 val joke = response.body()
