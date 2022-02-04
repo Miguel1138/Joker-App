@@ -3,18 +3,16 @@ package co.tiagoaguiar.tutorial.jokerappdev.view
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.Fragment
 import co.tiagoaguiar.tutorial.jokerappdev.R
+import co.tiagoaguiar.tutorial.jokerappdev.abstracts.AbstractFragment
 import co.tiagoaguiar.tutorial.jokerappdev.model.Joke
 import co.tiagoaguiar.tutorial.jokerappdev.presentation.JokePresenter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.squareup.picasso.Picasso
 
-class JokeFragment : Fragment(R.layout.fragment_joke) {
+class JokeFragment : AbstractFragment(R.layout.fragment_joke) {
 
     companion object {
         const val CATEGORY_KEY = "category"
@@ -22,7 +20,6 @@ class JokeFragment : Fragment(R.layout.fragment_joke) {
 
     private lateinit var imgJoke: ImageView
     private lateinit var txtJoke: TextView
-    private lateinit var progressBar: ProgressBar
     private lateinit var fab: FloatingActionButton
     private lateinit var presenter: JokePresenter
 
@@ -48,7 +45,6 @@ class JokeFragment : Fragment(R.layout.fragment_joke) {
     }
 
     private fun bind(view: View) {
-        progressBar = view.findViewById(R.id.progress_bar)
         txtJoke = view.findViewById(R.id.txt_joke)
         imgJoke = view.findViewById(R.id.img_joke)
         fab = view.findViewById(R.id.fab_refresh)
@@ -66,18 +62,6 @@ class JokeFragment : Fragment(R.layout.fragment_joke) {
     fun showJoke(response: Joke) {
         txtJoke.text = response.text
         Picasso.get().load(response.iconUrl).into(imgJoke)
-    }
-
-    fun showProgressBar() {
-        progressBar.visibility = View.VISIBLE
-    }
-
-    fun hideProgressBar() {
-        progressBar.visibility = View.GONE
-    }
-
-    fun showFailure(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
     }
 
 }
