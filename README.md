@@ -10,6 +10,7 @@
 <a name="about"> <h2> 📚 About the Project</h2> </a> 
 <p align="center"> An application which fetches for jokes using the Chuck Norris Api. </p>
 <p align="center">
+
  <img src="https://github.com/Miguel1138/Joker-App/blob/master/screenshots/Splash.PNG" width="20%">
  <img src="https://github.com/Miguel1138/Joker-App/blob/master/screenshots/home.PNG" width="20%">
  <img src="https://github.com/Miguel1138/Joker-App/blob/master/screenshots/Joke.PNG" width="20%">
